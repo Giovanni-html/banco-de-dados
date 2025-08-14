@@ -1,2 +1,37 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+create database site_de_vendas;
+
+CREATE TABLE login__usuario (
+	ID_usuario smallint auto_increment primary key,
+	nome_usuario varchar(50) not null,
+	data_login date not null,
+	senha varchar(16) not null
+	);    
+
+create table dados_usuario (
+	cpf varchar(14) primary key,
+    nome_completo varchar(100) not null,
+    nome_usuario varchar(50) not null,
+    data_nascimento date not null,
+    email varchar(100) not null unique check (email like '%@gmail.com'),
+    endereco_usuario varchar(225) not null unique,
+    data_login date not null
+    );
+    
+create table preco_produto (
+preco_produto varchar(5) not null,
+estoque char(10) not null,
+qnt_vendidos char(10) not null,
+data_compra date not null,
+data_entrega date not null,
+endereço_entrega varchar(105) not null unique
+);
+
+
+create table dados_compra (
+numero_cartao varchar(19) not null unique,
+validade_cartão varchar(5) not null unique,
+CVV_CVC char(4) not null unique
+);
+
+
+show tables;
